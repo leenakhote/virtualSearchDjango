@@ -1,0 +1,37 @@
+sudo ./start-slave.sh spark://192.168.1.38:7077
+sudo ./sbin/start-master.sh
+
+
+MASTER=spark://leena-stylabs:7077 spark-submit manage.py runserver 0.0.0.0:8011
+
+sudo gedit ~/.bashrc
+
+sudo ./start-slave.sh spark://192.168.1.38:7077
+
+	export AWS_ACCESS_KEY_ID = 'AKIAJ6IIHKANYPNE5X6A'
+export AWS_SECRET_ACCESS_KEY = '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'
+
+
+val accessKeyId = System.getenv("AWS_ACCESS_KEY_ID")
+val secretAccessKey = System.getenv("AWS_SECRET_ACCESS_KEY")
+sc.hadoopConfiguration.set("fs.s3n.awsAccessKeyId", "AKIAJ6IIHKANYPNE5X6A")
+sc.hadoopConfiguration.set("fs.s3n.awsSecretAccessKey", "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")
+
+
+./bin/spark-submit --packages org.apache.hadoop:hadoop-aws:2.7.1 \
+--master spark://hadoop@ec2-public-dns-of-my-cluster.compute-1.amazonaws.com \
+manage.py runserver 0.0.0.0:8011
+
+
+val myRDD = sc.textFile("s3://darwin-vs/train_no.csv")
+
+awstest1.txt
+
+https://s3.ap-south-1.amazonaws.com/darwin-vs/awstest1.txt
+
+spark-shell --jars jars/hadoop-aws-2.7.3.jar,jars/aws-java-sdk-1.7.4.jar
+
+ssh-copy-id -i ~/.ssh/id_rsa.pub ntkhoa@192.168.85.136
+ssh-keygen
+
+do create seperate file for spark-env.sh and source it
